@@ -3,7 +3,7 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <meta name="description" content="A modern, accessible self-service portal for NYCHA residents, applicants, and housing partners.">
+  <meta name="description" content="Accessible NYCHA self-service landing page for residents, applicants, and owners.">
   <title>NYCHA Self-Service Portal</title>
   <link rel="stylesheet" href="styles.css">
   <script src="script.js" defer></script>
@@ -13,92 +13,178 @@
 
   <header class="site-header">
     <div class="container header-inner">
-      <a class="brand" href="./" aria-label="NYCHA Self-Service Portal home">
+      <a class="brand" href="#" aria-label="NYCHA home">
         <span class="brand-mark" aria-hidden="true">N</span>
-        <span><strong>NYCHA</strong><small>Self-Service Portal</small></span>
+        <span class="brand-copy">
+          <strong>NYCHA</strong>
+          <small>Self-Service Portal</small>
+        </span>
       </a>
-      <nav class="utility-nav" aria-label="Utility navigation">
+
+      <nav class="utility-nav" aria-label="Accessibility controls">
         <label for="language-select" class="sr-only">Language</label>
-        <select id="language-select" class="language-select">
+        <select id="language-select" class="language-select" aria-label="Select language">
           <option value="en">English</option>
           <option value="es">Español</option>
           <option value="zh">中文</option>
           <option value="bn">বাংলা</option>
-          <option value="ht">Kreyòl ayisyen</option>
+          <option value="ht">Kreyòl</option>
+          <option value="ru">Русский</option>
+          <option value="ko">한국어</option>
         </select>
-        <button class="text-button" type="button" id="contrast-toggle" aria-pressed="false">High contrast</button>
-        <a class="help-link" href="#help">Help</a>
+
+        <button id="text-to-speech-toggle" class="text-button" type="button" aria-pressed="false">
+          🔊 Audio
+        </button>
+
+        <button id="contrast-toggle" class="text-button" type="button" aria-pressed="false">
+          ◐ High Contrast
+        </button>
+
+        <button id="text-size-toggle" class="text-button" type="button" aria-label="Increase text size">
+          A+ Text Size
+        </button>
       </nav>
     </div>
   </header>
 
   <main id="main-content">
     <section class="hero" aria-labelledby="welcome-heading">
-      <div class="container hero-grid">
+      <div class="container hero-panel">
         <div class="hero-copy">
-          <p class="eyebrow" data-i18n="eyebrow">NYCHA online services</p>
-          <h1 id="welcome-heading" data-i18n="heading">How can we help you today?</h1>
-          <p class="hero-lede" data-i18n="lede">Access your housing services, find information, and stay connected with NYCHA—all in one place.</p>
-          <div class="hero-actions">
-            <a class="button button-primary" href="#roles" data-i18n="getStarted">Get started</a>
-            <a class="button button-secondary" href="#quick-actions" data-i18n="browseServices">Browse services</a>
-          </div>
+          <p class="eyebrow">NYCHA online services</p>
+          <h1 id="welcome-heading">How can we help you today?</h1>
+          <p class="hero-text">Choose a service below to access housing, applications, payments, and support.</p>
         </div>
-        <aside class="notice-card" aria-labelledby="notice-heading">
+
+        <aside class="notice-card" aria-label="Important message">
           <span class="notice-icon" aria-hidden="true">!</span>
           <div>
-            <h2 id="notice-heading" data-i18n="noticeTitle">Important information</h2>
-            <p data-i18n="noticeText">NYCHA will never ask you for your password by email or text. Keep your account information safe.</p>
-            <a href="#help" data-i18n="learnMore">Learn more about staying safe</a>
+            <h2>Important notice</h2>
+            <p>NYCHA will never ask for your password by email or text. Keep your account secure.</p>
           </div>
         </aside>
       </div>
     </section>
 
-    <section class="section" id="roles" aria-labelledby="roles-heading">
+    <section class="quick-actions" aria-labelledby="quick-actions-title">
       <div class="container">
-        <div class="section-heading">
-          <p class="eyebrow" data-i18n="findYourPath">Find your path</p>
-          <h2 id="roles-heading" data-i18n="roleHeading">What best describes you?</h2>
-          <p data-i18n="roleSubheading">Choose an option to find the services and information you need.</p>
-        </div>
-        <div class="role-grid">
-          <a class="role-card" href="#quick-actions">
-            <span class="card-icon" aria-hidden="true">⌂</span><span><h3 data-i18n="tenant">I am a NYCHA resident</h3><p data-i18n="tenantDesc">Manage your tenancy, rent, repairs, and household information.</p><span class="card-link" data-i18n="viewResident">View resident services →</span></span>
-          </a>
-          <a class="role-card" href="#quick-actions">
-            <span class="card-icon" aria-hidden="true">✓</span><span><h3 data-i18n="applicant">I am a housing applicant</h3><p data-i18n="applicantDesc">Check your application, update your information, or learn about eligibility.</p><span class="card-link" data-i18n="viewApplicant">View applicant services →</span></span>
-          </a>
-          <a class="role-card" href="#quick-actions">
-            <span class="card-icon" aria-hidden="true">▣</span><span><h3 data-i18n="section8">I am a Section 8 participant</h3><p data-i18n="section8Desc">Access voucher services, recertification, and housing search resources.</p><span class="card-link" data-i18n="viewSection8">View Section 8 services →</span></span>
-          </a>
-          <a class="role-card" href="#quick-actions">
-            <span class="card-icon" aria-hidden="true">?</span><span><h3 data-i18n="visitor">I am new to NYCHA</h3><p data-i18n="visitorDesc">Explore programs, find answers, and learn how to apply for housing.</p><span class="card-link" data-i18n="learnAbout">Learn about NYCHA →</span></span>
-          </a>
-        </div>
-      </div>
-    </section>
-
-    <section class="section section-muted" id="quick-actions" aria-labelledby="actions-heading">
-      <div class="container">
-        <div class="section-heading split-heading"><div><p class="eyebrow" data-i18n="popularTasks">Popular tasks</p><h2 id="actions-heading" data-i18n="actionsHeading">Get things done online</h2></div><a class="text-link" href="#help" data-i18n="allServices">View all services →</a></div>
+        <h2 id="quick-actions-title" class="section-title">Popular services</h2>
         <div class="action-grid">
-          <a class="action-card" href="#login"><span class="action-icon" aria-hidden="true">↗</span><strong data-i18n="login">Log in to MyNYCHA</strong><span data-i18n="loginDesc">Manage your account and services</span></a>
-          <a class="action-card" href="#status"><span class="action-icon" aria-hidden="true">⌕</span><strong data-i18n="checkStatus">Check application status</strong><span data-i18n="statusDesc">View your application information</span></a>
-          <a class="action-card" href="#repair"><span class="action-icon" aria-hidden="true">⚒</span><strong data-i18n="requestRepair">Request a repair</strong><span data-i18n="repairDesc">Report and track a work order</span></a>
-          <a class="action-card" href="#payment"><span class="action-icon" aria-hidden="true">$</span><strong data-i18n="payRent">Pay rent</strong><span data-i18n="rentDesc">Make a secure online payment</span></a>
+          <a class="action-card" href="#resident-services">
+            <span class="action-icon" aria-hidden="true">👤</span>
+            <strong>Log in</strong>
+            <small>MyNYCHA account</small>
+          </a>
+          <a class="action-card" href="#resident-services">
+            <span class="action-icon" aria-hidden="true">📋</span>
+            <strong>Application status</strong>
+            <small>Check progress</small>
+          </a>
+          <a class="action-card" href="#resident-services">
+            <span class="action-icon" aria-hidden="true">🔧</span>
+            <strong>Request repair</strong>
+            <small>Track work order</small>
+          </a>
+          <a class="action-card" href="#resident-services">
+            <span class="action-icon" aria-hidden="true">💳</span>
+            <strong>Pay rent</strong>
+            <small>Secure payment</small>
+          </a>
         </div>
       </div>
     </section>
 
-    <section class="section" id="help" aria-labelledby="help-heading">
-      <div class="container help-grid">
-        <div><p class="eyebrow" data-i18n="needHelp">Need help?</p><h2 id="help-heading" data-i18n="helpHeading">You are not alone.</h2><p data-i18n="helpText">Get support online or connect with a NYCHA representative. We are here to help you access the services you need.</p></div>
-        <div class="help-options"><a class="help-option" href="tel:7187077771"><span aria-hidden="true">☎</span><span><strong data-i18n="callUs">Call NYCHA</strong><small>718-707-7771 · Mon–Fri, 8 AM–5 PM</small></span></a><a class="help-option" href="#faq"><span aria-hidden="true">?</span><span><strong data-i18n="visitHelp">Visit the Help Center</strong><small data-i18n="faq">Frequently asked questions and guides</small></span></a></div>
+    <section class="role-section" id="resident-services" aria-labelledby="role-title">
+      <div class="container">
+        <h2 id="role-title" class="section-title">Select your services</h2>
+
+        <div class="role-tabs" role="tablist" aria-label="User type selection">
+          <button class="role-tab active" type="button" role="tab" aria-selected="true" data-target="resident-panel">Resident</button>
+          <button class="role-tab" type="button" role="tab" aria-selected="false" data-target="applicant-panel">Applicant</button>
+          <button class="role-tab" type="button" role="tab" aria-selected="false" data-target="section8-panel">Section 8</button>
+          <button class="role-tab" type="button" role="tab" aria-selected="false" data-target="owner-panel">Owner</button>
+        </div>
+
+        <div class="role-panels">
+          <div class="role-panel active" id="resident-panel" role="tabpanel">
+            <ul>
+              <li><a href="#">Manage your account</a></li>
+              <li><a href="#">View lease and household info</a></li>
+              <li><a href="#">Request maintenance</a></li>
+              <li><a href="#">Payment history</a></li>
+              <li><a href="#">Special programs</a></li>
+            </ul>
+          </div>
+
+          <div class="role-panel" id="applicant-panel" role="tabpanel" hidden>
+            <ul>
+              <li><a href="#">Check application status</a></li>
+              <li><a href="#">Update contact information</a></li>
+              <li><a href="#">Eligibility information</a></li>
+              <li><a href="#">Start a new application</a></li>
+              <li><a href="#">Frequently asked questions</a></li>
+            </ul>
+          </div>
+
+          <div class="role-panel" id="section8-panel" role="tabpanel" hidden>
+            <ul>
+              <li><a href="#">Voucher status</a></li>
+              <li><a href="#">Recertification</a></li>
+              <li><a href="#">Housing search</a></li>
+              <li><a href="#">Inspection schedule</a></li>
+              <li><a href="#">Landlord portal</a></li>
+            </ul>
+          </div>
+
+          <div class="role-panel" id="owner-panel" role="tabpanel" hidden>
+            <ul>
+              <li><a href="#">Owner account</a></li>
+              <li><a href="#">Property information</a></li>
+              <li><a href="#">Voucher payments</a></li>
+              <li><a href="#">Maintenance requests</a></li>
+              <li><a href="#">Program resources</a></li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="help-section" aria-labelledby="help-title">
+      <div class="container">
+        <h2 id="help-title" class="section-title">Need help?</h2>
+        <div class="help-grid">
+          <a class="help-card" href="tel:7187077771">
+            <span aria-hidden="true">☎️</span>
+            <strong>Call NYCHA</strong>
+            <small>718-707-7771</small>
+          </a>
+          <a class="help-card" href="#">
+            <span aria-hidden="true">❓</span>
+            <strong>Help center</strong>
+            <small>Frequently asked questions</small>
+          </a>
+          <a class="help-card" href="#">
+            <span aria-hidden="true">♿</span>
+            <strong>Accessibility</strong>
+            <small>Support and accommodations</small>
+          </a>
+        </div>
       </div>
     </section>
   </main>
 
-  <footer class="site-footer"><div class="container footer-grid"><div><a class="brand brand-footer" href="./"><span class="brand-mark" aria-hidden="true">N</span><span><strong>NYCHA</strong><small>New York City Housing Authority</small></span></a><p>Serving New Yorkers with safe, affordable housing.</p></div><div><h2 class="footer-heading" data-i18n="footerResources">Resources</h2><a href="#help" data-i18n="contact">Contact us</a><a href="#privacy" data-i18n="privacy">Privacy and security</a><a href="#accessibility" data-i18n="accessibility">Accessibility</a></div><div><h2 class="footer-heading" data-i18n="footerConnect">Connect with us</h2><a href="#updates" data-i18n="updates">Get NYCHA updates</a><a href="https://www.nyc.gov/site/nycha/index.page">NYCHA website</a></div></div><div class="container footer-bottom"><span>© <span id="current-year"></span> New York City Housing Authority</span><button class="text-button footer-top" type="button" id="back-to-top">Back to top ↑</button></div></footer>
+  <footer class="site-footer">
+    <div class="container footer-inner">
+      <p>© <span id="year"></span> New York City Housing Authority</p>
+      <nav aria-label="Footer links">
+        <a href="#">Privacy</a>
+        <a href="#">Accessibility</a>
+        <a href="#">Contact</a>
+      </nav>
+    </div>
+  </footer>
+
+  <div id="sr-announcements" class="sr-only" aria-live="polite" aria-atomic="true"></div>
 </body>
 </html>
